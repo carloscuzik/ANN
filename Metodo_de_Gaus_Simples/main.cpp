@@ -4,6 +4,21 @@
 
 using namespace std;
 
+/*------------------Description-------------------*/
+/*                                                */
+/*    Programmer: Carlos Eduardo Cuzik            */
+/*    Institution: (BCC) UDESC-CCT                */
+/*    GitHub: github.com/carloscuzik              */
+/*    Functionality: Resolver problemas lineares  */
+/*    Language: C/C++                             */
+/*    Comments: Programa desenvolvido para a      */
+/*    disciplina de Analize Numerica com o        */
+/*    proposito de resolver problemas lineares.   */
+/*    Compilation: g++ main.cpp -o exe && ./exe   */
+/*                                                */
+/*------------------------------------------------*/
+
+/*------------Declaração das variaveis------------*/
 int cont_linhas();
 int cont_colunas();
 double **Alocar_matriz_real(int m, int n);
@@ -28,8 +43,7 @@ int main(){
 	return 0;
 }
 
-/************Funções de Contagem**************/
-
+/*--------------Funções de contagem---------------*/
 int cont_linhas(){
 	FILE *in;
 	in = fopen("entrada.txt","rt");
@@ -59,8 +73,8 @@ int cont_colunas(){
 	return count;
 }
 
-/**************Alocando Matrizes***************/
 
+/*---------Alocando Dinamicamente Matrizes--------*/
 double **Alocar_matriz_real(int m, int n){
 	double **v;
 	int i;
@@ -97,8 +111,7 @@ double **Liberar_matriz_real(int m, int n, double **v){
 	return (NULL);
 }
 
-/**************Alocando Vetores***************/
-
+/*---------Alocando Dinamicamente Vetores---------*/
 double *Alocar_vetor_real(int n){
 	double *v;
 	if(n < 1){
@@ -124,12 +137,12 @@ double *Liberar_vetor_real(int n, double *v){
 	free(v);
 	return (NULL);
 }
-/************Mostra Matriz***************/
+
+/*----------Imprimindo a matriz na Tela-----------*/
 void imprime_matriz(double **matriz_A,double *matriz_B, int linha,int coluna){
 	int i,j;
 	for(i=0;i<linha;i++){
 		for(j=0;j<coluna-1;j++){
-			//cout << matriz_A[i][j] << " ";
 			if(matriz_A[i][j]>=0){
 				cout << " ";
 			}
@@ -144,8 +157,7 @@ void imprime_matriz(double **matriz_A,double *matriz_B, int linha,int coluna){
 	cout << endl;
 }
 
-/************Leitura da Matriz**************/
-
+/*---------------Laitura da matriz----------------*/
 void le_matriz(double **matriz_A,double *matriz_B){
 	FILE *in;
 	in = fopen("entrada.txt","rt");
@@ -160,8 +172,7 @@ void le_matriz(double **matriz_A,double *matriz_B){
 	}
 }
 
-/************Metodo de gaus da matriz**************/
-
+/*-------------Metodo de Gaus na Matriz-----------*/
 void metodo_da_eliminacao_de_gaus_simple(double **matriz_A,double *matriz_B, int n_linhas,int n_colunas){
 	int i,j,k;
 	double m, aux;
@@ -179,8 +190,7 @@ void metodo_da_eliminacao_de_gaus_simple(double **matriz_A,double *matriz_B, int
 	}
 }
 
-/*******Imprime o Resultado Final**********/
-
+/*-------------Imprimindo o Resultado-------------*/
 void imprime_resultado_final(double **matriz_A,double *matriz_B, int n_linhas,int n_colunas){
 	int i,j;
 	double resultado[n_colunas-1];
