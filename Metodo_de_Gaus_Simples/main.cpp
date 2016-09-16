@@ -129,7 +129,7 @@ double *Liberar_vetor_real(int n_espacos, double *vetor){
 	if(vetor == NULL){ // verifica se voce não passo um vetor vazio
 		return (NULL);
 	}
-	if(n < 1){ // verifica se passo um numero de espaços possivel
+	if(n_espacos < 1){ // verifica se passo um numero de espaços possivel
 		printf("Erro: Parametro invalido\n");
 		return (NULL);
 	}
