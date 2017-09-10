@@ -27,13 +27,13 @@ def function_03(x):
 	return (2.0**x) - (x/2.0) - (2.0*x)
 
 #metodo da bisseccao
-def bisseccao(x1, x2, tolerance, function):
-	if(function(x1) * function(x2) > 0):
+def bisseccao(x1, x2, tolerance, f):
+	if(f(x1) * f(x2) > 0):
 		print("Os pontos não setisfazem a hipótese inicial")
 		return -1;
 	x_middle = (x1+x2)/2.0
-	while(abs(function(x_middle))>=tolerance):
-		if(function(x1) * function(x_middle) > 0):
+	while(abs(f(x_middle))>=tolerance):
+		if(f(x1) * f(x_middle) > 0):
 			x1 = x_middle
 		else:
 			x2 = x_middle
