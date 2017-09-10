@@ -9,11 +9,11 @@
 
 ## Objetivo
 
-Implementar e avaliar os métodos da __Bissecção__ e da __Falsa__ __Posição__ nas seguintes funções.
+Implementar e avaliar os métodos da **Bissecção** e da __Falsa__ __Posição__ nas seguintes funções.
 
-06 - 
-14 - 
-24 - 
++ 06 - function_01
++ 14 - function_02
++ 24 - function_03
 
 ## Dependências
 
