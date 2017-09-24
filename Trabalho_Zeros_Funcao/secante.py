@@ -13,6 +13,9 @@
 #   Observações:                                                             #
 #       -> Utilizar o python 3.0 para a execução do programa.                #
 #       -> Trocar a função na chamada do método da Secante.                  #
+#       -> Trocar também os valores iniciais para o método e a tolerância    #
+#                                                                            #
+#   Run: python3 secant.py                                                   #
 ##############################################################################
 
 import math as mt

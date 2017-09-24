@@ -13,6 +13,9 @@
 #   Observações:                                                             #
 #       -> Utilizar o python 3.0 para a execução do programa.                #
 #       -> Trocar a função na chamada do método da bisseccao.                #
+#       -> Trocar também os valores iniciais para o método e a tolerância    #
+#                                                                            #
+#   Run: python3 bisseccao.py                                                #
 ##############################################################################
 
 import math as mt
