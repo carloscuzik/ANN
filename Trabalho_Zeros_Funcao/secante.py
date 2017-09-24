@@ -12,7 +12,7 @@
 #                                                                            #
 #   Observações:                                                             #
 #       -> Utilizar o python 3.0 para a execução do programa.                #
-#       -> Trocar a função na chamada do método da Posição Falsa.            #
+#       -> Trocar a função na chamada do método da Secante.                  #
 ##############################################################################
 
 import math as mt
@@ -26,27 +26,51 @@ def function_02(x):
 def function_03(x):
 	return (2.0**x) - (x/2.0) - (2.0*x)
 
+def export_latex(data):
+	print('\\begin{table}[h!]')
+	print('\t\centering')
+	print('\t\\begin{tabular}{| c || l | l | l | l |}')
+	print('\t\t\hline')
+	print('\t\t$ k $' + '&' + '$ x_{k-1} $' + '&' + '$ x_{k} $' + '&' + '$ x_{k+1} $' + '&' + '$ Erro relativo (\%) $' + '\\\\')
+	k=0
+	for line in data:
+		print('\t\t\hline')
+		print ('\t\t\t' + str(k) + ' & ' + str(line[0]) + ' & ' + str(line[1]) + ' & ' + str(line[2]) + ' & ' + str(line[3]) + '\\\\')
+		k += 1
+	print('\t\t\hline')
+	print('\t\end{tabular}')
+	print('\t\caption{Método da Secante}')
+	print('\t\label{table:b:}')
+	print('\end{table}')
+	print('\n')
+
 def secant_root(x1,x2,f):
 	return x2 - ((f(x2)*(x2-x1))/(f(x2)-f(x1)))
 
-# Método da Posição Falsa
-def fake_position(x1, x2, tolerance, f):
+# Método da Secante
+def secant_method(x1, x2, tolerance, f):
 	if(f(x1) * f(x2) > 0):
-		print("Os pontos não setisfazem a hipótese inicial")
+		print("Os pontos não setisfazem a hipótese inicial do teorema de Bolzano")
 		return -1;
-	x_middle = secant_root(x1,x2,f)
-	while(abs(f(x_middle))>=tolerance):
-		if(f(x1) * f(x_middle) > 0):
-			x1 = x_middle
+	x_new = secant_root(x1,x2,f)
+	x_ant = x1
+	data = []
+	data +=[[x1,x2,x_new,abs((x_ant-x_new)/x_ant)]]
+	while(abs((x_ant-x_new)/x_ant)>=tolerance):
+		if(f(x1) * f(x_new) > 0):
+			x1 = x_new
 		else:
-			x2 = x_middle
-		x_middle = secant_root(x1,x2,f)
-	return x_middle;
+			x2 = x_new
+		x_ant = x_new
+		x_new = secant_root(x1,x2,f)
+		data +=[[x1,x2,x_new,abs((x_ant-x_new)/x_ant)]]
+	# export_latex(data) # comentar esta opção para não exportar
+	return x_new;
 
 def main():
-	print(fake_position(-5,0,0.0001, function_01))
-	print(fake_position( 0,2,0.0001, function_02))
-	print(fake_position( 2,3,0.0001, function_03))
+	print(secant_method(-5,0,0.0000001, function_01))
+	print(secant_method( 1,2,0.0000001, function_02))
+	print(secant_method( 2,3,0.0000001, function_03))
 
 if __name__ == '__main__':
     main()

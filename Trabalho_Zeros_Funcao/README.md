@@ -6,7 +6,7 @@
 - Pyettra Farreira
 
 ## Objetivo
-Implementar e avaliar os métodos da **Bissecção** e da __Falsa__ __Posição__ nas seguintes funções.
+Implementar e avaliar os métodos da **Bissecção** e da __Secante__ nas seguintes funções.
 
 + 06 - function_01
 + 14 - function_02
@@ -20,7 +20,7 @@ Implementar e avaliar os métodos da **Bissecção** e da __Falsa__ __Posição_
 
 ou
 
-``` $ python3 fake_position.py ```
+``` $ python3 secante.py ```
 
 ## Licenças
 [none]
