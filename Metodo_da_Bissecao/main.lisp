@@ -1,3 +1,4 @@
+#!/usr/bin/clisp
 ;função principal a ser análizada
 (defun funcao(x)
 	( - (expt x 2) 3);f(x)= x^2-3
