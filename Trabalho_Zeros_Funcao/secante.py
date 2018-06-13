@@ -35,9 +35,9 @@ def function_03(x):
 
 def export_latex(data):
     print("\\begin{table}[h!]")
-    print("\t\centering")
+    print("\t\\centering")
     print("\t\\begin{tabular}{| c || l | l | l | l |}")
-    print("\t\t\hline")
+    print("\t\t\\hline")
     print(
         "\t\t$ k $"
         + "&"
@@ -47,12 +47,12 @@ def export_latex(data):
         + "&"
         + "$ x_{k+1} $"
         + "&"
-        + "$ Erro relativo (\%) $"
+        + "$ Erro relativo (\\%) $"
         + "\\\\"
     )
     k = 0
     for line in data:
-        print("\t\t\hline")
+        print("\t\t\\hline")
         print(
             "\t\t\t"
             + str(k)
@@ -67,11 +67,11 @@ def export_latex(data):
             + "\\\\"
         )
         k += 1
-    print("\t\t\hline")
-    print("\t\end{tabular}")
-    print("\t\caption{Método da Secante}")
-    print("\t\label{table:b:}")
-    print("\end{table}")
+    print("\t\t\\hline")
+    print("\t\\end{tabular}")
+    print("\t\\caption{Método da Secante}")
+    print("\t\\label{table:b:}")
+    print("\\end{table}")
     print("\n")
 
 
